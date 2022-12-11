@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  backuper:
+    env_file:
+      - .env
+    image: 'node:14-alpine'
+    volumes:
+      - $PWD:/app
+    networks:
+      - sms_backuper_network
+    command:
+      - 'tail'
+      - '-f'
+      - '/dev/null'
+
+  mysql:
+    env_file:
+      - .env
+    image: 'mysql:8'
+    volumes:
+      - sms_backuper_db
+    networks:
+      - sms_backuper_network
+
+networks:
+  sms_backuper_network:
+    driver: bridge
+volumes:
+  sms_backuper_db:
+    driver: local

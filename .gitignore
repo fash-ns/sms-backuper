@@ -1,0 +1,5 @@
+backup_service.log
+dist/
+.env
+.idea/
+node_modules/
