@@ -1,10 +1,11 @@
 version: '3.8'
 
 services:
-  backuper:
+  sms_backuper:
     env_file:
       - .env
-    image: 'node:14-alpine'
+    build:
+      context: .
     volumes:
       - $PWD:/app
     networks:
