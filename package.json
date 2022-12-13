@@ -6,8 +6,9 @@
   "author": "Farbod Shams <farbodshams.2000@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "./node_modules/.bin/ts-node",
-    "run": "./node_modules/.bin/ts-node ./src/index.ts"
+    "build": "./node_modules/.bin/tsc",
+    "dev": "./node_modules/.bin/ts-node ./src/index.ts",
+    "start": "node ./dist/index.js"
   },
   "devDependencies": {
     "@types/node": "^18.11.11",
