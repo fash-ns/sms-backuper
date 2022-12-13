@@ -6,7 +6,7 @@ services:
       - .env
     image: "sms-backup-service:latest"
     volumes:
-      - $PWD:/srv/sms-backuper-service
+      - $PWD:/srv/sms-backup-service
     networks:
       - sms_backuper_network
     command:
