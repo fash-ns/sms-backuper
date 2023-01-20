@@ -6,8 +6,9 @@ services:
       - .env
     build:
       context: .
+    image: "sms-backup-service:latest"
     volumes:
-      - $PWD:/app
+      - $PWD:/srv/sms-backup-service
     networks:
       - sms_backuper_network
     command:
@@ -20,7 +21,7 @@ services:
       - .env
     image: 'mysql:8'
     volumes:
-      - sms_backuper_db
+      - sms_backuper_db:/var/lib/mysql
     networks:
       - sms_backuper_network
       

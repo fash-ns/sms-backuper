@@ -1,0 +1,1 @@
+0 12 * * 5 node /srv/sms-backup-service/dist/index.js
