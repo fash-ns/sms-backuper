@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   sms_backuper:
+    restart: unless-stopped
     env_file:
       - .env
     build:
@@ -17,6 +18,7 @@ services:
       - '/dev/null'
 
   mysql:
+    restart: always
     env_file:
       - .env
     image: 'mysql:8'
@@ -26,6 +28,7 @@ services:
       - sms_backuper_network
       
   pma:
+    restart: unless-stopped
     env_file:
       - .env
     image: 'phpmyadmin:5.2.0-apache'
