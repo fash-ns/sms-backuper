@@ -23,6 +23,13 @@ services:
       - sms_backuper_db
     networks:
       - sms_backuper_network
+      
+  pma:
+    env_file:
+      - .env
+    image: 'phpmyadmin:5.2.0-fpm-alpine'
+    networks:
+      - sms_backuper_network
 
 networks:
   sms_backuper_network:
