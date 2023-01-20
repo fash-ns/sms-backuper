@@ -28,5 +28,5 @@ async function main() {
 
 main().catch(err => {
     logger.getInstance().error(err.message);
-    process.exit(1);
+    //process.exit(1);
 });

@@ -1,3 +1,4 @@
+import path from "path";
 import {createLogger, transports, format} from "winston";
 import type {Logger} from "winston";
 const {File, Console} = transports;
@@ -14,7 +15,7 @@ class WinstonLoggerSingleton {
             WinstonLoggerSingleton.instance = createLogger({
                 level: "info",
                 transports: [
-                    new File({filename: "backup_service.log", format: format.combine(format.timestamp(), customFormat)}),
+                    new File({filename: path.resolve(process.env.PWD, "backup_service.log"), format: format.combine(format.timestamp(), customFormat)}),
                     new Console({format: format.combine(format.timestamp(), format.colorize(), customFormat)})
                 ]
             });

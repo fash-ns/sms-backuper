@@ -28,9 +28,11 @@ services:
   pma:
     env_file:
       - .env
-    image: 'phpmyadmin:5.2.0-fpm-alpine'
+    image: 'phpmyadmin:5.2.0-apache'
     networks:
       - sms_backuper_network
+    ports:
+      - 8000:80
 
 networks:
   sms_backuper_network:
