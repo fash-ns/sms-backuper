@@ -12,10 +12,6 @@ services:
       - $PWD:/srv/sms-backup-service
     networks:
       - sms_backuper_network
-    command:
-      - 'tail'
-      - '-f'
-      - '/dev/null'
 
   mysql:
     restart: always
