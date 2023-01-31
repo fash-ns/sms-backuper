@@ -1,1 +1,1 @@
-0 12 * * 5 cd /srv/sms-backup-service && yarn start
+0 14 * * * node /srv/sms-backup-service/dist/index.js

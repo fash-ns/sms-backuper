@@ -28,5 +28,6 @@ async function main() {
 
 main().catch(err => {
     logger.getInstance().error(err.message);
+    console.log(err);
     //process.exit(1);
 });
