@@ -11,7 +11,7 @@ class MessageRepository {
 
     public async getLatestMessageId(): Promise<number> {
         const res = await this.model.findOne({
-            order: [["created_at", "DESC"]],
+            order: [["send_time", "DESC"]],
             attributes: ["id", "message_id"]
         });
         if(!res) return 0;

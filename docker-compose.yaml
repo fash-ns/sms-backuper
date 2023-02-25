@@ -12,10 +12,6 @@ services:
       - $PWD:/srv/sms-backup-service
     networks:
       - sms_backuper_network
-    command:
-      - 'tail'
-      - '-f'
-      - '/dev/null'
 
   mysql:
     restart: always
@@ -24,6 +20,7 @@ services:
     image: 'mysql:8'
     volumes:
       - sms_backuper_db:/var/lib/mysql
+      - ${PWD}/sql:/app/sql
     networks:
       - sms_backuper_network
       

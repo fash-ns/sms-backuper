@@ -5,6 +5,7 @@ import type {
     RetrieveSentMessageReportResponseType
 } from "../../types/nh1/RetrieveSentMessageReportResponseType";
 import MessageFromStatusCode from "../nh1/MessageFromStatusCode";
+import Logger from "../Logger";
 
 class NH1 {
     private readonly webServiceBaseUrl: string;
@@ -23,7 +24,7 @@ class NH1 {
             Password: this.password,
             SMSId: messageId
         });
-
+        Logger.getInstance().info(`Fetching messages which ids are greater than ${messageId}`);
         const res = await axios.get<RetrieveSentMessageReportResponseType>(`${this.webServiceBaseUrl}ReportBulkSMS?${queryString}`);
         if(res.data.ResultStatusCode > 1)
             throw new Error(MessageFromStatusCode.get(res.data.ResultStatusCode));
