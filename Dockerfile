@@ -1,11 +1,13 @@
 FROM node:14-alpine
 
 RUN ["apk", "add", "tzdata"]
+RUN ["apk", "add", "git"]
+
 ENV TZ=Asia/Tehran
 
 WORKDIR /srv/sms-backup-service
 COPY . .
-RUN ["apk", "add", "git"]
+
 RUN ["yarn"]
 RUN ["yarn", "build"]
 
